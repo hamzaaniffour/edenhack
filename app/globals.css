@@ -2,26 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.loader {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #3490dc;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.glitch {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.glitch::before,
+.glitch::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fffc00; /* Match your border color */
+  clip-path: inset(0);
+  animation: glitch-animation 1s infinite linear alternate-reverse;
+}
+
+.glitch::before {
+  left: -2px;
+  animation-delay: 0.1s;
+}
+
+.glitch::after {
+  left: 2px;
+  animation-delay: 0.2s;
+}
+
+@keyframes glitch-animation {
+  0% { clip-path: inset(0); }
+  20% { clip-path: inset(5% 0 5% 0); }
+  40% { clip-path: inset(10% 0 10% 0); }
+  60% { clip-path: inset(5% 0 5% 0); }
+  80% { clip-path: inset(0); }
 }

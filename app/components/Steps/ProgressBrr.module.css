@@ -1,0 +1,30 @@
+.progressBar {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px; /* Adjust margin as needed */
+  }
+  
+  .progressContainer {
+    position: relative;
+    width: 100%; /* Adjust width of progress bar */
+    height: 5px; /* Adjust height of progress bar */
+    background-color: #ccc; /* Background color of progress bar */
+    border-radius: 100px; /* Adjust border radius */
+  }
+  
+  .progressBarFill {
+    position: absolute;
+    height: 100%;
+    background-color: #fffc00; /* Color of progress bar fill */
+    border-radius: 100px; /* Match container's border radius */
+    transition: width 0.3s ease; /* Smooth animation */
+  }
+  
+  .progressText {
+    position: absolute;
+    bottom: 7px;
+    left: 4%;
+    transform: translateX(-50%);
+    font-size: 16px;
+  }
+  
