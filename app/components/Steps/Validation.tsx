@@ -9,19 +9,25 @@ import {
 import HowToValidate from "../HowToValidate";
 import Script from "next/script";
 
-const Validation = () => {
+// Extend the Window interface to include our custom property
+declare global {
+  interface Window {
+    _qd?: () => void;
+  }
+}
 
+const Validation = () => {
   useEffect(() => {
     // Declare the global function
-    (window as any)._qd = () => {
+    window._qd = () => {
       console.log("_qd function called");
       // Add your desired functionality here
     };
   }, []);
 
   const handleButtonClick = () => {
-    if (typeof (window as any)._qd === 'function') {
-      (window as any)._qd();
+    if (typeof window._qd === 'function') {
+      window._qd();
     } else {
       console.error('_qd function not available');
     }
@@ -97,7 +103,7 @@ const Validation = () => {
             <IoArrowDownOutline className="text-[#7bbb29]" />
           </div>
           <button
-          onClick={handleButtonClick}
+            onClick={handleButtonClick}
             className="px-5 py-3 bg-[#fffc00] rounded-md text-zinc-950 font-semibold uppercase"
           >
             <IoCloudDownload className="inline-block text-lg relative -top-[0px] mr-0.5" />{" "}
