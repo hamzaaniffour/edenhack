@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Platform from "./components/Platform";
 
 export default function Home() {

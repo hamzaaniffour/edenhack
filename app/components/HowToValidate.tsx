@@ -5,7 +5,6 @@ import {
   AccordionTrigger,
 } from "@/app/components/accordions";
 import Link from "next/link";
-import { TbHexagonNumber1 } from "react-icons/tb";
 
 export function HowToValidate() {
   return (
