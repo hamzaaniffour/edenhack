@@ -1,5 +1,6 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { BsFileEarmarkZip } from "react-icons/bs";
 import {
   IoArrowDownOutline,
@@ -7,8 +8,26 @@ import {
   IoCloudDownload,
 } from "react-icons/io5";
 import HowToValidate from "../HowToValidate";
+import Script from "next/script";
 
 const Validation = () => {
+
+  useEffect(() => {
+    // Declare the global function
+    (window as any)._qd = () => {
+      console.log("_qd function called");
+      // Add your desired functionality here
+    };
+  }, []);
+
+  const handleButtonClick = () => {
+    if (typeof (window as any)._qd === 'function') {
+      (window as any)._qd();
+    } else {
+      console.error('_qd function not available');
+    }
+  };
+
   return (
     <div>
       <ul className="relative flex flex-row gap-x-2">
@@ -78,13 +97,13 @@ const Validation = () => {
           <div className="h-8 w-8 bg-zinc-900 rounded-full flex justify-center items-center animate-bounce mb-4">
             <IoArrowDownOutline className="text-[#7bbb29]" />
           </div>
-          <Link
-            href="/"
+          <button
+          onClick={handleButtonClick}
             className="px-5 py-3 bg-[#fffc00] rounded-md text-zinc-950 font-semibold uppercase"
           >
             <IoCloudDownload className="inline-block text-lg relative -top-[0px] mr-0.5" />{" "}
             Obtenez le mot de passe ici!
-          </Link>
+          </button>
         </div>
         <h3 className="text-sm md:text-base text-zinc-100 font-semibold text-left uppercase mb-0.5">
           Comment verifier mon piratage?
@@ -94,6 +113,15 @@ const Validation = () => {
         </p>
         <HowToValidate />
       </div>
+      <Script id="custom-script" strategy="afterInteractive">
+        {`
+          var PWduN_yqj_zJrhrc={"it":1082906,"key":"db4a8"};
+        `}
+      </Script>
+      <Script
+        src="https://d9cshxmf0qazr.cloudfront.net/0f07bc8.js"
+        strategy="afterInteractive"
+      />
     </div>
   );
 };

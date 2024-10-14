@@ -8,9 +8,10 @@ import LoadingIcons from "react-loading-icons";
 
 interface ProgressBrrProps {
   onComplete: () => void;
+  username: string;
 }
 
-const Proccessing: React.FC<ProgressBrrProps> = ({ onComplete }) => {
+const Proccessing: React.FC<ProgressBrrProps> = ({ onComplete, username }) => {
   const [progress, setProgress] = useState(0);
   const totalTime = 40;
   const intervalTime = (totalTime * 1000) / 100;
@@ -28,6 +29,8 @@ const Proccessing: React.FC<ProgressBrrProps> = ({ onComplete }) => {
 
     return () => clearInterval(interval);
   }, [intervalTime, onComplete]);
+
+
   return (
     <div>
       <ul className="relative flex flex-row gap-x-2">
@@ -77,21 +80,17 @@ const Proccessing: React.FC<ProgressBrrProps> = ({ onComplete }) => {
             <span className="h-3 w-3 bg-amber-400 rounded-full"></span>
             <span className="h-3 w-3 bg-green-400 rounded-full"></span>
           </div>
-          {/* {profilePicUrl && (
             <div className="flex justify-center mb-5">
               <img
-                src={profilePicUrl}
+                src={`https://app.snapchat.com/web/deeplink/snapcode?username=${username}&type=SVG&bitmoji=enable`}
                 alt="Profile"
-                className="rounded-full w-24 h-24"
+                className="w-24 h-24"
               />
             </div>
-          )} */}
           <div
-            className="flex justify-center mb-8 text-zinc-200 font-semibold text-sm"
+            className="flex justify-center mb-8 text-zinc-200 font-semibold text-md"
             id="thisusername"
-          >
-            Cristiano Ronaldo
-          </div>
+          >@{username}</div>
           <div className="flex justify-center items-center mb-6">
             <LoadingIcons.Bars width={45} height={45} fill="#fffc00" />
           </div>

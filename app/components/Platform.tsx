@@ -9,7 +9,8 @@ import Choosing from "./Steps/Choosing";
 import Proccessing from "./Steps/Proccessing";
 import Validation from "./Steps/Validation";
 
-const aff_link = "https://track.mspy.click/aff_c?offer_id=2&aff_id=10682&url_id=63";
+const aff_link =
+  "https://track.mspy.click/aff_c?offer_id=2&aff_id=10682&url_id=63";
 
 const MultiStepForm: React.FC = () => {
   const [step, setStep] = useState(1);
@@ -83,7 +84,7 @@ const MultiStepForm: React.FC = () => {
                     className="peer h-full w-full rounded-md border-2 border-zinc-800 bg-zinc-950 px-3 py-3 font-sans text-sm font-medium text-zinc-200 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-zinc-800 placeholder-shown:border-t-zinc-800 focus:border-2 focus:border-[#fffc00] focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-zinc-700"
                     placeholder=" "
                     type="text"
-                    name="first_name"
+                    name="username"
                     value={formData.username}
                     onChange={(e) =>
                       setFormData({ ...formData, username: e.target.value })
@@ -131,11 +132,11 @@ const MultiStepForm: React.FC = () => {
                 <CheckBox />
               </div>
               <button
-                    type="submit"
-                    className="w-full bg-[#fffc00] mt-3 text-zinc-900 py-3 font-semibold text-lg px-8 rounded duration-400 hover:bg-zinc-800 transition-all hover:text-[#fffc00]"
-                  >
-                    Obtenir le mot de passe
-                  </button>
+                type="submit"
+                className="w-full bg-[#fffc00] mt-3 text-zinc-900 py-3 font-semibold text-lg px-8 rounded duration-400 hover:bg-zinc-800 transition-all hover:text-[#fffc00]"
+              >
+                Obtenir le mot de passe
+              </button>
             </form>
           )}
 
@@ -145,32 +146,47 @@ const MultiStepForm: React.FC = () => {
               <button
                 onClick={handleStep2Submit}
                 className="w-full capitalize bg-[#fffc00] mt-5 text-zinc-900 py-3 font-semibold text-lg px-8 rounded duration-400 hover:bg-zinc-800 transition-all hover:text-[#fffc00]"
-              >Étape suivante</button>
+              >
+                Étape suivante
+              </button>
             </div>
           )}
 
           {step === 3 && loading && (
             <div>
-              <Proccessing onComplete={handleProgressComplete} />
+              <Proccessing
+                onComplete={handleProgressComplete}
+                username={formData.username}
+              />
             </div>
           )}
 
-          {step === 4 && (
-            <Validation />
-          )}
+          {step === 4 && <Validation />}
         </div>
       </div>
       <div className="lg:w-4/12">
         <div className="w-full">
-            <Link href={aff_link} target="_blank">
-                <Image src={Banner} alt="mSpy" className="w-full" width={0} height={0} />
-            </Link>
+          <Link href={aff_link} target="_blank">
+            <Image
+              src={Banner}
+              alt="mSpy"
+              className="w-full"
+              width={0}
+              height={0}
+            />
+          </Link>
         </div>
         <div className="p-5 bg-zinc-950 shadow-lg rounded-md mt-4">
           <h3 className="text-xl font-semibold text-zinc-200 mb-3 pb-5 border-b-[1px] border-zinc-700 uppercase">
             vidéo d&#39;explication
           </h3>
-          <video width="0" className="w-full" height="240" controls preload="none">
+          <video
+            width="0"
+            className="w-full"
+            height="240"
+            controls
+            preload="none"
+          >
             <source src="/path/to/video.mp4" type="video/mp4" />
             <track
               src="/path/to/captions.vtt"
@@ -178,7 +194,6 @@ const MultiStepForm: React.FC = () => {
               srcLang="en"
               label="English"
             />
-            Your browser does not support the video tag.
           </video>
         </div>
       </div>
