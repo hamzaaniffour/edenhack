@@ -73,8 +73,8 @@ const Choosing = () => {
           </h3>
           <p className="text-zinc-100 font-semibold text-[16px] mb-1">
             Selectionnez votre option de piratage ci-dessous puis cliquez sur le
-            bouton "{" "}
-            <span className="text-[#7bbb29] capitalize">Étape suivante</span> ".
+            bouton &#39;{" "}
+            <span className="text-[#7bbb29] capitalize">Étape suivante</span> &#39;.
           </p>
         </div>
         <div className="bg-zinc-900 p-4 rounded">
