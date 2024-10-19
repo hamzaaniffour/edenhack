@@ -8,6 +8,7 @@ import Link from "next/link";
 import Choosing from "./Steps/Choosing";
 import Proccessing from "./Steps/Proccessing";
 import Validation from "./Steps/Validation";
+import Sidebar from "./Sidebar/Sidebar";
 
 const aff_link =
   "https://track.mspy.click/aff_c?offer_id=2&aff_id=10682&url_id=63";
@@ -66,7 +67,7 @@ const MultiStepForm: React.FC = () => {
   return (
     <div className="lg:flex gap-6">
       <div className="lg:w-8/12">
-        <div className="p-8 bg-zinc-950 shadow-lg rounded-md">
+        <div className="p-5 bg-zinc-950 shadow-lg rounded-md mb-8 lg:mb-6">
           {step === 1 && (
             <form onSubmit={handleSubmitStep1}>
               <div className="flex justify-center items-center">
@@ -176,26 +177,7 @@ const MultiStepForm: React.FC = () => {
             />
           </Link>
         </div>
-        <div className="p-5 bg-zinc-950 shadow-lg rounded-md mt-4">
-          <h3 className="text-xl font-semibold text-zinc-200 mb-3 pb-5 border-b-[1px] border-zinc-700 uppercase">
-            vidéo d&#39;explication
-          </h3>
-          <video
-            width="0"
-            className="w-full"
-            height="240"
-            controls
-            preload="none"
-          >
-            <source src="/path/to/video.mp4" type="video/mp4" />
-            <track
-              src="/path/to/captions.vtt"
-              kind="subtitles"
-              srcLang="en"
-              label="English"
-            />
-          </video>
-        </div>
+        <Sidebar />
       </div>
     </div>
   );

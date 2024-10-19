@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className="bg-zinc-900">
       <body>
-        <div className="max-w-[90%] sm:max-w-[95%] md:max-w-[1000px] lg:max-w-[1000px] xl:max-w-[1250px] mx-auto">
+        <div className="max-w-[100%] sm:max-w-[95%] md:max-w-[1000px] lg:max-w-[1000px] xl:max-w-[1250px] mx-auto">
           <Navbar />
             {children}
           <Footer />
