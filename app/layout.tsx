@@ -5,9 +5,16 @@ import Footer from "./components/Global/Footer/Footer";
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
-  title: "EdenHack",
-  description: "Espion Snapchat Victime Gratuitement",
-};
+  title: {
+    default: "Espion Snapchat Victime Gratuitement",
+    template: "%s | EdenHack",
+
+  },
+  description: "",
+  // twitter: {
+  //   card: "summary_large_image",
+  // },
+}
 
 export default function RootLayout({
   children,
