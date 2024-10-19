@@ -4,7 +4,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/app/components/accordions";
-import Link from "next/link";
 
 export function HowToValidate() {
   return (
